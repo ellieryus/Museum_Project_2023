@@ -1,0 +1,2 @@
+01 00 * * * /usr/bin/mysqldump -u root mmsdb > /home/chuong/db_backups/mydb$(date +\%Y-\%m-\%d).sql
+02 00 * * * find /path/to/backups -type f -name "*.sql" -mtime +30 -delete

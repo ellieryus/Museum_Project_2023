@@ -1,0 +1,17 @@
+[
+  { "TDate": "2023-04-02", "TTime": "07:00", "TRemaining": 4 },
+  { "TDate": "2023-04-02", "TTime": "09:00", "TRemaining": 4 },
+  { "TDate": "2023-04-02", "TTime": "11:00", "TRemaining": 4 },
+  { "TDate": "2023-04-02", "TTime": "13:00", "TRemaining": 4 },
+  { "TDate": "2023-04-02", "TTime": "15:00", "TRemaining": 4 },
+  { "TDate": "2023-04-03", "TTime": "07:00", "TRemaining": 4 },
+  { "TDate": "2023-04-03", "TTime": "09:00", "TRemaining": 4 },
+  { "TDate": "2023-04-03", "TTime": "11:00", "TRemaining": 4 },
+  { "TDate": "2023-04-03", "TTime": "13:00", "TRemaining": 4 },
+  { "TDate": "2023-04-03", "TTime": "15:00", "TRemaining": 4 },
+  { "TDate": "2023-04-04", "TTime": "07:00", "TRemaining": 4 },
+  { "TDate": "2023-04-04", "TTime": "09:00", "TRemaining": 4 },
+  { "TDate": "2023-04-04", "TTime": "11:00", "TRemaining": 4 },
+  { "TDate": "2023-04-04", "TTime": "13:00", "TRemaining": 4 },
+  { "TDate": "2023-04-04", "TTime": "15:00", "TRemaining": 4 }
+]

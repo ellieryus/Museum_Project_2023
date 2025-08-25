@@ -1,0 +1,117 @@
+@use "../galleryGlobal" as gallery;
+$slide-container-width: 60vw;
+
+@keyframes scroll {
+  0% {
+    transform: translate(0);
+  }
+  26% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translate(calc($slide-container-width * -1));
+  }
+  59% {
+    transform: translate(calc($slide-container-width * -1));
+  }
+  66% {
+    transform: translate(calc($slide-container-width * -2));
+  }
+  93% {
+    transform: translate(calc($slide-container-width * -2));
+  }
+  100% {
+    transform: translate(calc($slide-container-width * -3));
+  }
+}
+
+.slider {
+  //padding-top: calc(50vh - 20vh + 5vh);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - gallery.$nav-height);
+  padding-top: calc(40vh - gallery.$nav-height/2 - 20vh);
+  scroll-snap-align: start;
+  .slider-container::-webkit-scrollbar {
+    //display: none;
+  }
+
+  .slider-zone {
+    position: relative;
+    width: $slide-container-width;
+    height: 40vh;
+
+    .img-frame {
+      position: absolute;
+      height: 100%;
+      width: $slide-container-width;
+      top: 10px;
+      right: 10px;
+      border: 1px solid white;
+      border-radius: 20vh;
+      z-index: 2;
+    }
+    .slider-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: $slide-container-width;
+      height: 40vh;
+      border-radius: 20vh;
+      z-index: 1;
+      overflow: hidden;
+
+      .slide-track {
+        display: flex;
+        align-items: center;
+        width: calc(3 * $slide-container-width);
+        height: 100%;
+        animation: scroll 12s linear 4s infinite;
+        .slide-item {
+          flex-shrink: 0;
+          position: relative;
+          width: $slide-container-width;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+
+          .img-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            img {
+              flex-shrink: 0;
+              width: 100%;
+              opacity: 0.6;
+            }
+          }
+          .title-container {
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            p {
+              position: relative;
+              margin-left: 10vw;
+              font-family: "prata";
+              font-size: 4vh;
+              color: white;
+            }
+          }
+        }
+      }
+      img {
+        flex-shrink: 0;
+        position: relative;
+        width: 100%;
+        //bottom: 60%;
+        object-fit: cover;
+      }
+    }
+  }
+}

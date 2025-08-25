@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  app:
+    image: server
+    ports: 
+      - "3000:3306"
+      - "3001:3001"
+    restart: unless-stopped

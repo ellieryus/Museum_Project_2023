@@ -1,0 +1,14 @@
+[
+  {
+    "GName": "Book",
+    "GQuantity": 2,
+    "BDate": "2023-04-02",
+    "BNum": "#38#9473#"
+  },
+  {
+    "GName": "Bag",
+    "GQuantity": 3,
+    "BDate": "2023-05-02",
+    "BNum": "#38#9493#"
+  }
+]

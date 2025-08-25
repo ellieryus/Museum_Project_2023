@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "Name": "Museum Book",
+    "Category": "Book",
+    "quantity": 11,
+    "Price": "25.00"
+  },
+  {
+    "id": 2,
+    "Name": "Museum Book Limited Edition",
+    "Category": "Book",
+    "quantity": 10,
+    "Price": "50.00"
+  },
+  {
+    "id": 3,
+    "Name": "Picasso Tote Bag",
+    "Category": "Bag",
+    "quantity": 10,
+    "Price": "13.00"
+  },
+  {
+    "id": 4,
+    "Name": "Monalisa Tote Bag",
+    "Category": "Bag",
+    "quantity": 11,
+    "Price": "13.00"
+  },
+  {
+    "id": 5,
+    "Name": "Museum Book German Edition",
+    "Category": "Book",
+    "quantity": 11,
+    "Price": "25.00"
+  },
+  {
+    "id": 6,
+    "Name": "Key chain",
+    "Category": "Accessories",
+    "quantity": 10,
+    "Price": "5.00"
+  }
+]

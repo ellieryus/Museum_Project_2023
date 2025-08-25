@@ -1,0 +1,159 @@
+@use "../../Style/globalVar" as g;
+
+.Review {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), #303030) !important;
+  backdrop-filter: blur(0.5px);
+  transition: all 0.4s ease-in-out;
+  scroll-snap-align: start;
+  z-index: 0;
+  .--background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  .review-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 0px;
+    width: 60vw;
+    height: 100vh;
+    .review-article {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 15vw;
+        aspect-ratio: 3/4.5;
+        background: rgba(48, 48, 48, 0.8);
+        box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(30px);
+        .review-text {
+          text-align: center;
+          width: 80%;
+        }
+      }
+    }
+  }
+  .review-rating {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0px;
+    width: 40vw;
+    height: 100vh;
+    text-align: center;
+
+    background: rgba(48, 48, 48, 0.5);
+
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(30px);
+    .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+      color: rgb(186, 182, 182) !important;
+      position: relative !important;
+      padding: 0 !important;
+      font-family: "Inter" !important;
+      font-style: normal;
+      font-weight: 400;
+      font-size: min(2.5vh, 3vw) !important;
+    }
+    .css-htae97-MuiFormControl-root-MuiTextField-root {
+      width: 80%;
+      .MuiInputLabel-root {
+        color: rgb(186, 182, 182) !important;
+      }
+      .css-1wc848c-MuiFormHelperText-root {
+        color: red !important;
+      }
+    }
+    .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root {
+      color: rgb(186, 182, 182);
+    }
+  }
+}
+
+@media screen and (max-width: g.$res-tablet) and (min-width: g.$res-mobile) {
+  .Review {
+    flex-direction: column;
+    gap: 50px;
+
+    .review-container {
+      width: 80vw;
+      height: fit-content;
+      .review-article {
+        .item {
+          width: 30vw;
+          height: 30vh;
+        }
+      }
+    }
+    .review-rating {
+      height: 30vh;
+      width: 60vw;
+    }
+  }
+}
+
+@media screen and (max-width: g.$res-mobile) {
+  .Review {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), #303030) !important;
+    flex-direction: column;
+    gap: 0px;
+    overflow: hidden;
+    .review-container {
+      margin-top: 10px;
+      width: 100vw;
+      height: fit-content;
+      gap: 20px;
+      .review-article {
+        .item {
+          width: 35vw;
+          height: 30vh;
+          .css-ryrseu-MuiRating-root {
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+    .review-rating {
+      height: 100%;
+      width: 100vw;
+      .css-htae97-MuiFormControl-root-MuiTextField-root {
+        margin-top: 30px;
+      }
+    }
+  }
+}

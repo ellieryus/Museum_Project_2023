@@ -1,0 +1,82 @@
+@use "../../Style/globalVar" as g;
+
+.HomeEmployee {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(48, 48, 48);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px;
+
+  .--background {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+    img {
+      height: -webkit-fill-available;
+      position: fixed;
+      width: 100vw;
+      opacity: 20%;
+      top: 0;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .side-panel {
+    position: relative;
+    left: 0px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 38vw;
+    height: 100%;
+    background-color: rgb(48, 48, 48);
+
+    .panel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      height: 15vh;
+      border-bottom: solid 1px white;
+      background-color: rgb(26, 24, 24);
+      cursor: pointer;
+    }
+    .panel:hover {
+      .--Text {
+        color: white;
+        transition: all 0.4s ease-in;
+      }
+      background-color: rgba(0, 0, 0, $alpha: 0.8);
+      transition: all 0.4s ease-in;
+    }
+  }
+
+  .Title {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column-reverse;
+    bottom: 20px;
+    left: 25px;
+  }
+}
+
+.on {
+  display: block;
+  transition: all 0.4s ease-in-out;
+}
+.off {
+  opacity: 0%;
+  transition: all 0.4s ease-in-out;
+}

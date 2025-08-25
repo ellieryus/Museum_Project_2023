@@ -1,0 +1,1262 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CloudXi Museum",
+    "description": "This is the REST API documentaion for the Cloudxi Museum online management system",
+    "version": "1.0.0",
+    "contact": {
+      "email": "CloudXiMuseum@gmail.com"
+    }
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Everything about Authentication"
+    },
+    {
+      "name": "Booking",
+      "description": "Everything about Booking"
+    },
+    {
+      "name": "Gallery & Artwork",
+      "description": "Everything about Gallery & Artwork"
+    },
+    {
+      "name": "Shopping",
+      "description": "Everything about Shopping"
+    },
+    {
+      "name": "Review",
+      "description": "Everything about Review"
+    },
+    {
+      "name": "Profile",
+      "description": "Everything about Profile"
+    },
+    {
+      "name": "Check in & Check out",
+      "description": "Everything about Check in & Check out"
+    },
+    {
+      "name": "Inventory Management",
+      "description": "Everything about Inventory Management"
+    },
+    {
+      "name": "Data",
+      "description": "Everything about Data"
+    },
+    {
+      "name": "Modify",
+      "description": "Everything about Modify"
+    }
+  ],
+  "paths": {
+    "/default/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Logs the user in",
+        "description": "Logs the user in",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/auth/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Registers a new account",
+        "description": "Registers a new account",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/auth/sign-in-with-google": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Signs in with google account",
+        "description": "Signs in with google account",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/gallery/": {
+      "get": {
+        "tags": [
+          "Gallery & Artwork"
+        ],
+        "summary": "Retrieves artworks to present in the gallery",
+        "description": "Retrieves artworks to present in the gallery",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/artworks/{artID}": {
+      "get": {
+        "tags": [
+          "Gallery & Artwork"
+        ],
+        "summary": "Retrieves information of the selected artwork",
+        "description": "Retrieves information of the selected artwork",
+        "parameters": [
+          {
+            "name": "artID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/search-artworks/": {
+      "get": {
+        "tags": [
+          "Gallery & Artwork"
+        ],
+        "summary": "Search for a particular artwork",
+        "description": "Search for a particular artwork",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/booking/getTimeslots": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "summary": "Get the available timeslots for booking",
+        "description": "Get the available timeslots for booking",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/check-login/": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Checks if the user already logs in to the system",
+        "description": "Checks if the user already logs in to the system",
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/default/reviews/": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "summary": "Get the top reviews about the website",
+        "description": "Get the top reviews about the website",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/default/giftshop/getGoodsTable": {
+      "get": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Get the available merchandises",
+        "description": "Get the available merchandises",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customer/booking/{UID}/ticket": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "summary": "Get the information of the ticket",
+        "description": "Get the information of the ticket",
+        "parameters": [
+          {
+            "name": "UID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/booking/books": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "summary": "Book tickets",
+        "description": "Book tickets",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/user-likes/{artID}/like": {
+      "post": {
+        "tags": [
+          "Gallery & Artwork"
+        ],
+        "summary": "Give like for the picture",
+        "description": "Give like for the picture",
+        "parameters": [
+          {
+            "name": "artID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "like": {
+                  "example": "any"
+                },
+                "UID": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/user-likes/{artID}/{userID}": {
+      "get": {
+        "tags": [
+          "Gallery & Artwork"
+        ],
+        "summary": "Check if the user has liked the picture or not",
+        "description": "Check if the user has liked the picture or not",
+        "parameters": [
+          {
+            "name": "artID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/giftshop/getGoodsTable": {
+      "get": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Get the information of souvenirs",
+        "description": "Get the information of souvenirs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/giftshop/getGoodsTable/pending/{uid}": {
+      "get": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Get the information of souvenirs whose status is pending",
+        "description": "Get the information of souvenirs whose status is pending",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/giftshop/getGoodsTable/booked/{uid}": {
+      "get": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Get the information of souvenirs whose status is booked",
+        "description": "Get the information of souvenirs whose status is booked",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/giftshop/getGoodsTable/delivered/{uid}": {
+      "get": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Get the information of souvenirs whose status is delivered",
+        "description": "Get the information of souvenirs whose status is delivered",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/giftshop/booked": {
+      "post": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Book the souvenir in client cart",
+        "description": "Book the souvenir in client cart",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/giftshop/cart": {
+      "post": {
+        "tags": [
+          "Shopping"
+        ],
+        "summary": "Add chosen item into customer cart",
+        "description": "Add chosen item into customer cart",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/reviews/{uid}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "summary": "Get the reviews of the customer",
+        "description": "Get the reviews of the customer",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/reviews/": {
+      "post": {
+        "tags": [
+          "Review"
+        ],
+        "summary": "Give reviews for the Museum",
+        "description": "Give reviews for the Museum",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/profile/{uid}": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Get the information of the customer",
+        "description": "Get the information of the customer",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/customer/profile/modify/password": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Change the password of the customer",
+        "description": "Change the password of the customer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/check-in-out/{ticketCode}": {
+      "get": {
+        "tags": [
+          "Check in & Check out"
+        ],
+        "summary": "Get the status of a ticket",
+        "description": "Get the status of a ticket",
+        "parameters": [
+          {
+            "name": "ticketCode",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/check-in-out/check-in": {
+      "post": {
+        "tags": [
+          "Check in & Check out"
+        ],
+        "summary": "Checks a ticket in",
+        "description": "Checks a ticket in",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/check-in-out/check-out": {
+      "post": {
+        "tags": [
+          "Check in & Check out"
+        ],
+        "summary": "Checks a ticket out",
+        "description": "Checks a ticket out",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/modify/{tableName}/insert": {
+      "post": {
+        "tags": [
+          "Modify"
+        ],
+        "summary": "Inserts a new tuple to a table",
+        "description": "Inserts a new tuple to a table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/modify/{tableName}/delete": {
+      "post": {
+        "tags": [
+          "Modify"
+        ],
+        "summary": "Delete a tuple from a table",
+        "description": "Delete a tuple from a table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/modify/{tableName}/modify": {
+      "post": {
+        "tags": [
+          "Modify"
+        ],
+        "summary": "Modify a tuple in a table",
+        "description": "Modify a tuple in a table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/get-data/getAttribute/{tableName}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get the columns and its related information",
+        "description": "Get the columns and its related information",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/get-data/getTableName": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get all names of all tables in the database",
+        "description": "Get all names of all tables in the database",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/get-data/getTable/{tableName}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get all information about a specific table",
+        "description": "Get all information about a specific table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/inventory/{billNum}": {
+      "get": {
+        "tags": [
+          "Inventory Management"
+        ],
+        "summary": "Get the status of a bill",
+        "description": "Get the status of a bill",
+        "parameters": [
+          {
+            "name": "billNum",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/employee/inventory/deliver": {
+      "post": {
+        "tags": [
+          "Inventory Management"
+        ],
+        "summary": "Delived a bill to a customer",
+        "description": "Delived a bill to a customer",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/admin/modify/{tableName}/insert": {
+      "post": {
+        "tags": [
+          "Modify"
+        ],
+        "summary": "Inserts a new tuple to a table",
+        "description": "Inserts a new tuple to a table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/admin/modify/{tableName}/delete": {
+      "post": {
+        "tags": [
+          "Modify"
+        ],
+        "summary": "Delete a tuple from a table",
+        "description": "Delete a tuple from a table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/admin/modify/{tableName}/modify": {
+      "post": {
+        "tags": [
+          "Modify"
+        ],
+        "summary": "Modify a tuple in a table",
+        "description": "Modify a tuple in a table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/admin/get-data/getAttribute/{tableName}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get the columns and its related information",
+        "description": "Get the columns and its related information",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/admin/get-data/getTableName": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get all names of all tables in the database",
+        "description": "Get all names of all tables in the database",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/admin/get-data/getTable/{tableName}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Get all information about a specific table",
+        "description": "Get all information about a specific table",
+        "parameters": [
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  }
+}

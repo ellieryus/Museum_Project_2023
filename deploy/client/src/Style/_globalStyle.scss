@@ -1,0 +1,109 @@
+@use "./globalVar" as g;
+.--Text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: g.$fontSize;
+  margin: 0;
+  color: rgb(186, 182, 182);
+  transition: all 0.4s ease-in;
+}
+.--header {
+  font-family: "Prata";
+  font-style: normal;
+  font-weight: 1000;
+  font-size: g.$fontSizeHeader;
+  margin: 0;
+  color: rgb(186, 182, 182);
+  transition: all 0.4s ease-in;
+}
+.--Title {
+  font-family: "Prata";
+  font-size: g.$fontSizeTitle;
+  margin-bottom: -11px;
+  color: #ffffff;
+  transition: all 0.4s ease-in;
+}
+.--SmallText {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: g.$fontSizeSmall;
+  margin: 0;
+  color: rgb(186, 182, 182);
+  transition: all 0.4s ease-in;
+}
+.--line {
+  box-sizing: border-box;
+  width: 1px;
+  height: 100%;
+  opacity: 10%;
+  border: 1px solid #bbbbbb;
+  transition: all 0.4s ease-in;
+}
+.glass {
+  background: linear-gradient(225deg, rgba(0, 0, 0, 0.1), #303030);
+  backdrop-filter: blur(5px);
+  box-shadow: inset -8px -8px 16px 2px rgba(0, 0, 0, 0.1);
+  border-left: 1px rgba(255, 255, 255, 0.2) solid;
+  border-top: 1px rgba(255, 255, 255, 0.2) solid;
+}
+@keyframes rise {
+  0% {
+    opacity: 0%;
+    transform: translateY(11%);
+  }
+  50% {
+    opacity: 20%;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+@keyframes rise-re {
+  100% {
+    opacity: 0%;
+    transform: translateY(11%);
+  }
+  50% {
+    opacity: 20%;
+    transform: translateY(10%);
+  }
+  0% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0%;
+    transform: scale(1.15);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes zoom-out {
+  from {
+    opacity: 0%;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes zoom-out-fade {
+  from {
+    opacity: 100%;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0%;
+    transform: scale(1.15);
+  }
+}

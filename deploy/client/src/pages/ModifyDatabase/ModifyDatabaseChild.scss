@@ -1,0 +1,330 @@
+@use "../../Style/globalVar" as g;
+
+.ModifyDatabaseChild {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s ease-in-out;
+
+  .--background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .side-panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    border: solid 0.2px white;
+    z-index: 1;
+
+    .panel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      background-color: rgb(58, 54, 54);
+      width: 10vw;
+      height: 5vh;
+    }
+
+    .panel:hover {
+      .--Text {
+        color: white;
+        transition: all 0.4s ease-in;
+      }
+      background-color: rgba(26, 24, 24, $alpha: 1);
+      transition: all 0.4s ease-in;
+    }
+
+    .selected-panel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      width: 10vw;
+      height: 5vh;
+      background-color: rgba(26, 24, 24, $alpha: 0.6);
+    }
+  }
+
+  .insert-form-container {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 25px;
+    gap: 15px;
+
+    .insert-table-container {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      display: table;
+
+      .insert-row-container {
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        display: table-row;
+        gap: 2px;
+
+        .insert-cell-container {
+          position: relative;
+          height: fit-content;
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+          border-right: 1px solid rgb(186, 182, 182);
+          padding: 20px 10px 20px 10px;    
+        }
+
+        .--s0 {
+          background-color: rgba(26, 24, 24, $alpha: 0.2);
+        }
+
+        .--s1 {
+          background-color: rgba($color: #000000, $alpha: 0.4)
+        }
+      }
+
+      .--header {
+        z-index: 1;
+        background-color: #383838;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+      }
+    }
+  }
+
+  .insert-button-container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modify-form-container {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 25px;
+    gap: 15px;
+
+    .modify-table-container {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      display: table;
+
+      .modify-row-container {
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        display: table-row;
+        gap: 2px;
+
+        .modify-cell-container {
+          position: relative;
+          height: fit-content;
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+          border-right: 1px solid rgb(186, 182, 182);
+          padding: 20px 10px 20px 10px;    
+        }
+
+        .--s0 {
+          background-color: rgba(26, 24, 24, $alpha: 0.2);
+        }
+
+        .--s1 {
+          background-color: rgba($color: #000000, $alpha: 0.4)
+        }
+      }
+
+      .--header {
+        z-index: 1;
+        background-color: #383838;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+      }
+    }
+  }
+
+  .modify-button-container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .database-form-container {
+    position: relative;
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+
+    //padding-bottom: 25px;
+
+    .database-table {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      overflow-y: scroll;
+      justify-content: center;
+      align-items: flex-start;
+      &::-webkit-scrollbar{display: none};
+
+      .database-table-container {
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        display: table;
+        backdrop-filter: blur(5px);
+  
+        .database-row-container {
+          position: relative;
+          width: 100%;
+          height: fit-content;
+          display: table-row;
+          gap: 2px;
+          border-bottom: 1px solid rgb(186, 182, 182);
+  
+          .database-cell-container {
+            position: relative;
+            height: fit-content;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            background-color: rgba(26, 24, 24, $alpha: 0.2);
+            border-bottom: 1px solid rgb(186, 182, 182);
+            padding: 20px 10px 20px 10px;
+            color: rgb(186, 182, 182);          
+          }
+  
+          .--s0 {
+            background-color: rgba(26, 24, 24, $alpha: 0.2);
+          }
+  
+          .--s1 {
+            background-color: rgba($color: #000000, $alpha: 0.4)
+          }
+        }
+  
+        .--header {
+          z-index: 1;
+          background-color: #383838;
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0px;
+        }
+      }
+    }
+  }
+
+  .notification-screen {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+
+    .notification {
+      position: absolute;
+      top: 40vh;
+      right: 35vw;
+      display: flex;
+      flex-direction: column;
+      width: 30vw;
+      height: 12vh;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+      background-color:  rgb(186, 182, 182);
+      border-radius: 25px;
+      >.--Text {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+
+  .button-container {
+    position: relative;
+    top: 0px;
+    right: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    //justify-content: space-evenly;
+    //width: 20vw;
+    > Button {
+      width: max(9vw, 110px);
+      height: 7vh;
+      margin-right: 15px;
+    }
+  }
+
+  .button-container-BACK {
+    position: relative;
+    z-index: 2;
+    //justify-content: space-evenly;
+    //width: 20vw;
+  }
+
+  .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+    color: #fff !important;
+    position: relative !important;
+    font-size: 21px !important;
+    padding: 0 !important;
+    transition: all 0.4s ease-in-out;
+  }
+}

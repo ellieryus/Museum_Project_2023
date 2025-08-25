@@ -1,0 +1,489 @@
+@use "../../Style/globalVar" as g;
+.Profile {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #303030;
+  transition: all 0.4s ease-in-out;
+
+  .--background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+    animation: zoom-in 1.5s ease-in-out forwards;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  //background-color: rgb(48, 48, 48);
+
+  .expand-div {
+    border-radius: 20px !important;
+    transition: all 0.4s ease-in-out !important;
+    animation: expand 0.4s 0.4s ease-in-out forwards !important;
+  }
+  .in-animate {
+    animation: expand-re 0.4s forwards ease-in-out;
+  }
+  .account-container {
+    top: 20px;
+    left: 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), #303030);
+    backdrop-filter: blur(5px);
+    box-shadow: inset 8px 8px 16px 2px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px rgba(255, 255, 255, 0.1) solid;
+    border-radius: 1000px;
+    height: 10vh;
+    width: 25vw;
+    transition: all 0.4s 0.4s ease-in-out;
+    z-index: 1;
+    .account {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      .account-title {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 10px;
+      }
+      .material-symbols-outlined {
+        font-weight: 100;
+        font-size: 10vh;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), #303030);
+        backdrop-filter: blur(5px);
+        box-shadow: inset -8px -8px 16px 2px rgba(0, 0, 0, 0.2);
+        border-left: 2px rgba(255, 255, 255, 0.1) solid;
+        border-radius: 1000px;
+        transform: scale(0.9);
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1);
+        }
+      }
+    }
+    .-show {
+      display: flex !important;
+    }
+    .-visible {
+      opacity: 100% !important;
+      transition: all 0.5s ease-in-out !important;
+    }
+    .change-pw-form {
+      position: relative;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      gap: 30px;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), #303030);
+      box-shadow: 8px 8px 16px 2px rgba(0, 0, 0, 0.2);
+      border-top: 2px rgba(255, 255, 255, 0.1) solid;
+      border-radius: 20px;
+      .field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 3px;
+        transition: all 0.4s ease-in-out;
+      }
+      .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+        color: #fff !important;
+        position: relative !important;
+        padding: 0 !important;
+        font-family: "Inter" !important;
+        font-style: normal;
+        font-weight: 400;
+        font-size: min(2.5vh, 3vw) !important;
+      }
+      .css-1d1r5q-MuiFormHelperText-root {
+        color: red !important;
+      }
+      .css-htae97-MuiFormControl-root-MuiTextField-root {
+        width: 80%;
+        transition: all 0.4s ease-in-out;
+      }
+      .notification {
+        color: #fff;
+        font-size: g.$fontSize;
+        width: fit-content;
+      }
+    }
+  }
+
+  .section {
+    position: relative;
+    display: flex;
+    padding-top: 150px;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    .section-ticket {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      height: 90vh;
+      gap: 5%;
+      background: linear-gradient(225deg, rgba(0, 0, 0, 0.1), #303030);
+      backdrop-filter: blur(5px);
+      box-shadow: 8px 8px 16px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: inset -8px -8px 16px 2px rgba(255, 255, 255, 0.05);
+      border-radius: 70px;
+      border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
+      border-top: 1px rgba(255, 255, 255, 0.2) solid;
+      animation: rise 0.5s ease-in-out forwards;
+
+      .ticket-slider-out {
+        width: 160px;
+        height: 60vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .ticket-slider-in {
+          display: flex;
+          flex-shrink: 0;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.4s ease-in-out;
+          margin-left: 20px ;
+          //transform: translateX();
+          width: auto;
+          .booking-ticket {
+            position: relative;
+            height: 400px;
+            width: 160px;
+            margin: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 8px 8px 16px 4px rgba(0, 0, 0, 0.15);
+            scroll-snap-align: start;
+            
+            img {
+              position: absolute;
+              height: inherit;
+              width: inherit;
+            }
+            #ticket-img {
+              top: 0px;
+              right: -90%;
+              width: 200%;
+              height: 55%;
+              object-fit: cover;
+            }
+            .ticket-component {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-direction: column;
+              width: 100%;
+              height: 45%;
+              z-index: 1;
+              p {
+                padding: 0;
+                margin: 0;
+                color: #303030;
+              }
+              .head-component {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                .-line {
+                  box-sizing: border-box;
+                  width: 90%;
+                  height: 0.3px;
+                  background-color: black;
+                  transition: all 0.4s ease-in;
+                  z-index: 1;
+                  flex-shrink: none;
+                }
+                .booking-ticket-info {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  flex-direction: row;
+                  width: 90%;
+                  z-index: 1;
+                  p {
+                    color: black;
+                  }
+                }
+              }
+              .bottom-component {
+                padding-bottom: 1vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 90%;
+                gap: 4px;
+                .cir-ticket {
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                  flex-direction: row;
+                  width: 100%;
+                  gap: 4px;
+                  .cir {
+                    height: 15px;
+                    width: 15px;
+                    background-color: black;
+                    border-radius: 100%;
+                  }
+                }
+                #-detail {
+                  font-family: "Inter";
+                  font-size: 9px;
+                  margin-top: -5px;
+                }
+                #-barcode {
+                  font-family: "3 of 9 Barcode";
+                  font-size: 20px;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .radio {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        .cir {
+          height: 10px;
+          aspect-ratio: 2/1;
+          border: rgba(255, 255, 255, 0.8) 1px solid;
+          border-radius: 100px;
+        }
+      }
+      .navigate {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 90%;
+        gap: 10px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), #303030);
+        backdrop-filter: blur(5px);
+        box-shadow: 8px 8px 16px 4px rgba(0, 0, 0, 0.1);
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+    }
+
+    .section-cart {
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 50%;
+      height: 90vh;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), #303030);
+      backdrop-filter: blur(5px);
+      box-shadow: 8px 8px 16px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 70px;
+      border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
+      border-top: 1px rgba(255, 255, 255, 0.2) solid;
+      overflow: scroll;
+      animation: rise 0.5s ease-in-out forwards;
+      .item-header {
+        flex-shrink: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), #303030);
+        box-shadow: 8px 16px 16px 4px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px rgba(255, 255, 255, 0.2) solid;
+        box-sizing: border-box;
+      }
+      .item-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        .item {
+          display: flex;
+          margin: 0 10px 0 10px;
+          justify-content: space-between;
+          align-items: center;
+          height: 50px;
+          width: 100%;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1),
+            #303030
+          );
+          box-shadow: 8px 16px 16px 4px rgba(0, 0, 0, 0.2);
+          &:hover {
+            cursor: pointer;
+          }
+          .item-title {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+          }
+        }
+        ul.--show {
+          display: block;
+        }
+        ul {
+          display: none;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            margin-left: 25px;
+            padding-left: 10px;
+            width: 80%;
+            height: 40px;
+            border-left: 1px rgba(255, 255, 255, 0.2) solid;
+            //background: linear-gradient(100deg, rgba(0, 0, 0, 0.4), #303030);
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes expand {
+  from {
+    height: 10vh;
+  }
+  to {
+    height: 60vh;
+  }
+}
+@keyframes expand-re {
+  from {
+    height: 60vh;
+  }
+  to {
+    height: 10vh;
+  }
+}
+
+@media screen and (max-width: g.$res-mobile) {
+  .Profile {
+    .account-container {
+      width: 85vw;
+      .css-htae97-MuiFormControl-root-MuiTextField-root .MuiInputLabel-root {
+        font-size: 10px !important;
+      }
+    }
+    .section {
+      justify-content: flex-start;
+      flex-direction: column;
+      width: 90vw;
+      gap: 10px;
+      .section-cart {
+        width: 90vw;
+        height: 70vh;
+      }
+      .section-ticket {
+        width: 55vw;
+        height: 70vh;
+
+        .navigate {
+          width: 90%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: g.$res-tablet) and (min-width: g.$res-mobile) {
+  .Profile {
+    .account-container {
+      width: 40vw;
+      .css-htae97-MuiFormControl-root-MuiTextField-root .MuiInputLabel-root {
+        font-size: 12px !important;
+      }
+    }
+    .section {
+      //justify-content: flex-start;
+      //flex-direction: column;
+      width: 90vw;
+      // gap: 10px;
+      .section-cart {
+        width: 50vw;
+        height: 70vh;
+      }
+      .section-ticket {
+        width: 30vh;
+        height: 70vh;
+
+        .navigate {
+          width: 90%;
+        }
+      }
+    }
+  }
+}

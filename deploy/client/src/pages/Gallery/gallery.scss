@@ -1,0 +1,34 @@
+.gallery {
+  position: relative;
+  width: 100vw;
+  background-color: #303030;
+  .content {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+}

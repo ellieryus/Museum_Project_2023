@@ -1,0 +1,26 @@
+[
+  {
+    "TDate": "2023-04-02",
+    "TTime": "07:00",
+    "TicketCode": "#38#9473#",
+    "TStatus": "booked"
+  },
+  {
+    "TDate": "2023-03-04",
+    "TTime": "09:00",
+    "TicketCode": "#39#9473#",
+    "TStatus": "checkout"
+  },
+  {
+    "TDate": "2023-04-12",
+    "TTime": "11:00",
+    "TicketCode": "#40#9473#",
+    "TStatus": "checkout"
+  },
+  {
+    "TDate": "2023-04-12",
+    "TTime": "11:00",
+    "TicketCode": "#40#9473#",
+    "TStatus": "checkout"
+  }
+]

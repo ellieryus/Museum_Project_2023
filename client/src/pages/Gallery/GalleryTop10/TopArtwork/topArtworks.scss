@@ -1,0 +1,83 @@
+.topArtworks {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  &:hover {
+    .title {
+      display: block !important;
+    }
+    .cover {
+      display: block !important;
+    }
+  }
+  &:nth-child(1) {
+    grid-area: pic0;
+  }
+  &:nth-child(2) {
+    grid-area: pic1;
+  }
+  &:nth-child(3) {
+    grid-area: pic2;
+  }
+  &:nth-child(4) {
+    grid-area: pic3;
+  }
+  &:nth-child(5) {
+    grid-area: pic4;
+  }
+  &:nth-child(6) {
+    grid-area: pic5;
+  }
+  &:nth-child(7) {
+    grid-area: pic6;
+  }
+  &:nth-child(8) {
+    grid-area: pic7;
+  }
+  &:nth-child(9) {
+    grid-area: pic8;
+  }
+  &:nth-child(10) {
+    grid-area: pic9;
+  }
+
+  .item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    .cover {
+      position: absolute;
+      display: none;
+      height: 100%;
+      width: 100%;
+      background-color: rgba($color: #616161, $alpha: 0.3);
+      z-index: 3;
+    }
+    .rectangle {
+      position: absolute;
+      background-color: #c1852c;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .title {
+      position: relative;
+      font-size: 1.25vw;
+      font-family: "Prata";
+      color: #fffcff;
+      padding-left: 1vw;
+      z-index: 1;
+      //display: none;
+    }
+  }
+}

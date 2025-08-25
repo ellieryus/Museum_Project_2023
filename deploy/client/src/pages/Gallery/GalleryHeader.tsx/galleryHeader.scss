@@ -1,0 +1,84 @@
+@use "../../../Style/globalVar" as g;
+@use "../galleryGlobal" as gallery;
+
+$searchSize: 15px;
+.gallery-header {
+  position: relative;
+  width: 100%;
+  height: gallery.$nav-height; //global
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: visible;
+  z-index: 10;
+  animation: rotate 1s linear;
+
+  .inner-header {
+    display: flex;
+    margin-top: 4vh;
+    padding-left: 3vw;
+    align-items: center;
+    button {
+      margin-right: 3vw;
+    }
+    .inside-container {
+      .first-rank {
+        background-color: #d1d1d0;
+        border-radius: 20px;
+        height: calc(gallery.$searchSize * 2.5);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 20;
+        transition: all 0.4s ease-in-out;
+
+        .search-button {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          justify-content: center;
+          background-color: #d1d1d0;
+          font-size: 25px;
+          height: calc(gallery.$searchSize * 2.5);
+          border-radius: 20px;
+          padding: 0 10px 0 10px;
+          z-index: 20;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.07);
+            box-shadow: 4px 4px 8px 1px rgb(0, 0, 0, 0.2);
+            transition: all 0.4s ease-in-out;
+          }
+        }
+        input {
+          background-color: #d1d1d0;
+          border-radius: 20px;
+          padding: 0 10px;
+          border-width: 0;
+          height: calc($searchSize * 1.6);
+          width: calc($searchSize * 20);
+          font-size: $searchSize;
+          transition: all 0.4s ease-in-out;
+          z-index: 20;
+          &:focus-visible {
+            outline: none;
+          }
+          &.hide {
+            padding: 0;
+            width: 0;
+            transition: all 0.4s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+  .home-container {
+    display: flex;
+  }
+  .search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

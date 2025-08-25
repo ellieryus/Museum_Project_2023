@@ -1,0 +1,111 @@
+.Shopping-cart {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #303030;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s ease-in-out;
+  .--background {
+    top: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    animation: zoom-in 2s ease-in;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  .container {
+    position: absolute;
+    top: 5%;
+    width: 60vw;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 5vh;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    animation: rise 1s 1s ease-in forwards;
+    .item-container {
+      width: 100%;
+      padding: 0;
+      li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        list-style: none;
+        gap: 20%;
+        width: 100%;
+        aspect-ratio: 12/1;
+        padding-left: 10px;
+        background: linear-gradient(100deg, rgba(0, 0, 0, 0.4), #303030);
+        transition: all 0.4s ease-in-out;
+        .item-title {
+          width: 100%;
+        }
+        .item-modify {
+          display: flex;
+          width: -webkit-fill-available;
+          align-items: center;
+          justify-content: flex-end;
+          cursor: pointer;
+          .delete {
+            padding: 0 10% 0 10%;
+          }
+        }
+      }
+    }
+    .button-container {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+}
+@media screen and (max-width: 1181px) and (min-width: 415px) {
+  .Shopping-cart .container {
+    gap: 3vh;
+    .item-container li {
+      aspect-ratio: 8/1;
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .Shopping-cart {
+    .--hidden {
+      display: none;
+    }
+    .container {
+      gap: 2vh;
+      width: 90vw;
+      .item-container {
+        li {
+          height: 70px;
+          .item-title {
+            text-align: left;
+          }
+        }
+        .item-modify {
+          .material-symbols-outlined {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

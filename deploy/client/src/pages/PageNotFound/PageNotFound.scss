@@ -1,0 +1,49 @@
+@use "../../Style/globalVar" as g;
+.PageNotFound {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s ease-in-out;
+
+  .--background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  .team > p {
+    font-size: 10px;
+  }
+  .button-container {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //justify-content: space-evenly;
+    //width: 20vw;
+    > Button {
+      width: max(9vw, 110px);
+      height: 7vh;
+      margin-right: 15px;
+    }
+  }
+}

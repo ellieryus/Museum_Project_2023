@@ -1,0 +1,177 @@
+@use "../../Style/globalVar" as g;
+
+.Inventory {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(48, 48, 48);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;  
+
+  .--background {
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+    img {
+      height: -webkit-fill-available;
+      position: fixed;
+      width: 100vw;
+      opacity: 20%;
+      top: 0;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  
+  .formContainer {
+    position: absolute;
+    width: 50vw;
+    height: 90vh;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    );
+    backdrop-filter: blur(5px);
+    box-shadow: 8px 8px 16px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 87px;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    flex: none;
+    order: 2;
+    transition: all 0.4s ease-in-out;
+  
+    .inventoryForm {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: top;
+      align-items: center;
+      padding: 0px;
+      gap: 35px;
+      height: 100%;
+      transition: all 0.4s ease-in-out;
+
+      .button-container {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5px;
+        z-index: 1;
+        > Button{
+          width: 9.8vw;
+          height: fit-content;
+        }
+      } 
+      
+      .database-table-container {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        display: table;
+        backdrop-filter: blur(5px);
+  
+        .database-row-container {
+          position: relative;
+          width: 100%;
+          height: fit-content;
+          display: table-row;
+          gap: 2px;
+          border-bottom: 1px solid rgb(186, 182, 182);
+  
+          .database-cell-container {
+            position: relative;
+            max-width: fit-content ;
+            height: fit-content;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            background-color: rgba(26, 24, 24, $alpha: 0.2);
+            border-bottom: 1px solid rgb(186, 182, 182);
+            padding: 20px 10px 20px 10px;
+            color: rgb(186, 182, 182);          
+          }
+  
+          .--s0 {
+            background-color: rgba(26, 24, 24, $alpha: 0.2);
+          }
+  
+          .--s1 {
+            background-color: rgba($color: #000000, $alpha: 0.4)
+          }
+        }
+      }
+      
+      .field {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        transition: all 0.4s ease-in-out;
+      }
+      .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+        color: #fff !important;
+        position: relative !important;
+        font-size: 25px !important;
+        padding: 0 !important;
+        transition: all 0.4s ease-in-out;
+      }
+      .css-1d1r5q-MuiFormHelperText-root{
+        color: red !important;
+      }
+      .css-htae97-MuiFormControl-root-MuiTextField-root {
+        width: 30vw;
+        transition: all 0.4s ease-in-out;
+      }
+      .notification {
+        color: #fff;
+        font-size: g.$fontSize;
+        width: fit-content;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: g.$res-tablet) and (min-width: g.$res-mobile) {
+  .formContainer {
+    width: 60vw;
+    height: 60vh;
+    .authenForm {
+      width: 60vw;
+      .css-htae97-MuiFormControl-root-MuiTextField-root {
+        width: 45vw;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+  }
+  .Button{
+    left: 40px;
+  }
+}
+
+@media screen and (max-width: g.$res-mobile) {
+  .formContainer {
+    width: 80vw;
+    height: 70vh;
+    margin-left: 10vw;
+    .authenForm {
+      width: 80vw;
+      .css-htae97-MuiFormControl-root-MuiTextField-root {
+        width: 60vw;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+  }
+  .Button{
+    left: 20px;
+    top:20px;
+  }
+}

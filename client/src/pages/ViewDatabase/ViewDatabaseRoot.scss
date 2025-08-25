@@ -1,0 +1,99 @@
+@use "../../Style/globalVar" as g;
+
+.ViewDatabaseRoot {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.4s ease-in-out;
+
+  .--background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    transition: all 0.4s ease-in-out;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 20%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .database-form-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15vh;
+
+    .database-table-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;      
+
+      .database-column-container {
+        position: relative;
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 10vh;
+      }
+
+      .button-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //justify-content: space-evenly;
+        //width: 20vw;
+        > Button {
+          width: max(9vw, 110px);
+          height: 7vh;
+        }
+      }
+
+      .field-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3%;
+        
+        width: 15vw;
+        height: 18vh;
+
+        background: linear-gradient(
+          rgba(41, 40, 40, 0.7),
+          #02020200
+        );
+        backdrop-filter: blur(1px);
+        box-shadow: 8px 8px 16px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+
+        gap: 5vh;
+      }
+    }
+  }
+}
